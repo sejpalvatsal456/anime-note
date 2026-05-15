@@ -4,3 +4,8 @@ interface NavbarTabsType {
   icon: React.ReactElement;
   url: string;
 }
+
+interface ContentRailType {
+  imgUrl: string;
+  title: string;
+}

@@ -30,7 +30,7 @@ type NavbarProps = {
 
 const Navbar = ({ activePage }: NavbarProps) => {
   return (
-    <nav className="w-screen bg-black/0 px-20 border-b-1 border-gray-500 flex text-white items-center justify-between fixed top-0 left-0 bg-[rgba(8, 8, 8, .8)] backdrop-blur-[16px]">
+    <nav className="w-screen bg-black/0 md:px-20 pr-5 border-b-1 border-gray-500 flex text-white items-center justify-between fixed top-0 left-0 bg-[rgba(8, 8, 8, .8)] backdrop-blur-[16px]">
       <h1 className="text-white text-lg">Anime Note</h1>
       <ul className="flex gap-10">
         {navbarTabs.map((item, key) => (
