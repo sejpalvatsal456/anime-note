@@ -1,3 +1,6 @@
+import type { ContentRailType } from "../../types";
+import ContentCard from "./ContentCard";
+
 type ContentRailProps = {
   title: string;
   icon: React.ReactElement
@@ -35,19 +38,7 @@ const ContentRail = ({ title, icon }: ContentRailProps) => {
       <div className="grid md:grid-cols-5 grid-cols-3 mt-5 md:gap-15">
 
         {contentData.map((content, key) => (
-          <div key={key} className="w-46 p-3 rounded-lg hover:bg-[rgb(50,_50,_50,_0.8)] trasistion-color duration-300 cursor-pointer">
-          <img
-            className="w-40 h-60 rounded-xl"
-            src={content.imgUrl}
-            alt=""
-          />
-          <span
-            style={{ fontFamily: "Manrope" }}
-            className="inline-block font-semibold text-lg mt-2 text-gray-400"
-          >
-            {content.title}
-          </span>
-        </div>
+          <ContentCard key={key} animeId={1020} imgUrl={content.imgUrl} title={content.title} />
         ))}
 
         
