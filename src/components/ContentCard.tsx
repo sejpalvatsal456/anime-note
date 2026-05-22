@@ -13,8 +13,7 @@ const ContentCard = ({ animeId, imgUrl, title }: ContentCardProps) => {
   return (  
     <div 
       className="w-46 p-3 rounded-lg hover:bg-[rgb(50,_50,_50,_0.8)] trasistion-color duration-300 cursor-pointer"
-      onClick={(e) => {
-        e.preventDefault();
+      onClick={() => {
         navigate({
           to: '/anime/$animeId',
           params: {

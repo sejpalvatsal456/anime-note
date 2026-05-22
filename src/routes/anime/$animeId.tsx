@@ -11,7 +11,7 @@ function RouteComponent() {
   const { animeId } = Route.useParams();
 
   const { data, isLoading } = useQuery({
-    queryKey: ["anime"],
+    queryKey: ["anime", animeId],
     queryFn: () => searchAnimeById({ data: animeId }),
   });
 
