@@ -68,7 +68,7 @@ const Navbar = ({ activePage }: NavbarProps) => {
         </div>
       </nav>
       <div
-        className={`transition-all duration-300 overflow-hidden ${
+        className={`fixed z-[50] transition-all duration-300 overflow-hidden ${
           isSearchOpen
             ? "max-h-full opacity-100 translate-y-0"
             : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"

@@ -18,7 +18,7 @@ const SearchSection = () => {
   });
 
   return (
-    <div className="pt-5 flex flex-col items-center text-white w-screen h-screen bg-black overflow-y-scroll z-100">
+    <div className="pt-5 flex flex-col items-center h-screen w-screen text-white bg-black overflow-y-scroll">
       <div
         style={{ backgroundColor: "rgba(20, 20, 20, 1)" }}
         className="flex w-[80vw] border-1 border-gray-500 p-3 rounded-lg "
@@ -32,7 +32,7 @@ const SearchSection = () => {
           type="text"
         />
       </div>
-      {data && (
+      {!isLoading && data && (
         <div className="grid md:grid-cols-5 grid-cols-3 mt-5 md:gap-15 ">
           {data.length !== 0 ? (
             data.data.map((content: Anime, key: number) => (

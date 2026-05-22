@@ -9,7 +9,7 @@ export const searchAnime = createServerFn()
   });
 
 export const searchAnimeById = createServerFn()
-  .inputValidator((animeId: number) => animeId)
+  .inputValidator((animeId: string) => animeId)
   .handler(async({data}) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${data}`);
     const dataFromApi = await res.json();
