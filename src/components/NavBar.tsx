@@ -37,7 +37,7 @@ const Navbar = ({ activePage }: NavbarProps) => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 bg-black/0">
+      <div className="z-10 fixed top-0 left-0 bg-black/0">
         <nav className="w-screen md:px-20 h-20 pr-10 border-b-1 border-gray-500 flex text-white items-center justify-between bg-[rgba(8, 8, 8, .8)] backdrop-blur-[16px]">
           <h1 className="text-white text-lg">Anime Note</h1>
           <ul className="flex gap-10">
