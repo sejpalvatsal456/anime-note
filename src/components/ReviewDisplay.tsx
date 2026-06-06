@@ -3,16 +3,16 @@ import Rating from "@mui/material/Rating";
 
 type ReviewDisplayProps = {
   uid: string;
-  user_name: string;
-  user_image: string | null;
-  rating: number; // 0-10
+  userName: string;
+  userImage: string | null;
+  rating: number; // 0-5
   comment: string;
   timestamp: string;
 };
 
 export const ReviewDisplay = ({
-  user_name,
-  user_image,
+  userName,
+  userImage,
   rating,
   comment,
   timestamp,
@@ -22,14 +22,14 @@ export const ReviewDisplay = ({
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
           <Avatar
-            src={user_image ?? undefined}
-            alt={user_name}
+            src={userImage ?? undefined}
+            alt={userName}
             sx={{ width: 42, height: 42 }}
           />
 
           <div>
             <h3 className="font-semibold leading-none">
-              {user_name}
+              {userName}
             </h3>
 
             <p className="mt-1 text-sm text-zinc-400">

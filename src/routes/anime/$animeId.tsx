@@ -13,10 +13,17 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import StarIcon from "@mui/icons-material/Star";
 import { useState } from "react";
-import { ReviewDisplay } from "#/components/ui/ReviewDisplay";
+import { ReviewDisplay } from "#/components/ReviewDisplay";
+import ReviewForm from "#/components/ReviewForm";
 export const Route = createFileRoute("/anime/$animeId")({
   component: RouteComponent,
 });
+
+const user = {
+  userName: "pyking45",
+  userImage: null,
+
+}
 
 const data = {
   data: {
@@ -248,7 +255,9 @@ const data = {
 function RouteComponent() {
   // const { animeId } = Route.useParams();
 
-  const [rating, setRating] = useState<number>(0);
+  const [yourRating, setYourRating] = useState<number>(0);
+
+  const rating = 4.5;
 
   // const { data, isLoading } = useQuery({
   //   queryKey: ["anime", animeId],
@@ -335,9 +344,7 @@ function RouteComponent() {
                   <Rating
                     precision={0.5}
                     value={rating}
-                    onChange={(_, newValue) => {
-                      setRating(newValue ?? 0);
-                    }}
+                    readOnly
                     icon={<StarIcon fontSize="inherit" />}
                     emptyIcon={<StarIcon fontSize="inherit" />}
                     sx={{
@@ -366,11 +373,17 @@ function RouteComponent() {
               {/* Reviews */}
               <ContentSection title="Reviews">
                 <div className="flex flex-col gap-5">
+
+                  <ReviewForm
+                    userName={user.userName}
+                    userImage={user.userImage}
+                  />
+
                   {data.reviews.map((review) => (
                     <ReviewDisplay
                       uid={review.uid}
-                      user_name={review.user_name}
-                      user_image={null}
+                      userName={review.user_name}
+                      userImage={null}
                       rating={review.rating}
                       comment={review.comment}
                       timestamp={review.timestamp}
