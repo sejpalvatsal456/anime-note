@@ -1,8 +1,14 @@
-const PrimaryButton = ({ children }: { children: React.ReactNode }) => {
+type PrimaryButtonProps = {
+  children: React.ReactNode,
+  onClick: (e:React.FormEvent) => void;
+}
+
+const PrimaryButton = ({ children, onClick }: PrimaryButtonProps) => {
   return (
     <button
       type="button"
       style={{ fontFamily: "Manrope", fontWeight: "600" }}
+      onClick={onClick}
       className="md:w-75
         relative
         group

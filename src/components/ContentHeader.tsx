@@ -2,6 +2,7 @@ import { FaRegEye, FaRegBookmark } from "react-icons/fa";
 import type { Anime } from "../../types";
 import PrimaryButton from "./ui/PrimaryButton";
 import SecondaryButton from "./ui/SecondaryButton";
+import type React from "react";
 
 type ContentHeaderProps = {
   contentData: Anime;
@@ -9,6 +10,16 @@ type ContentHeaderProps = {
 
 const ContentHeader = ({ contentData }: ContentHeaderProps) => {
 
+
+  const handleWatchedBtn = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Mark as Watched")
+  };
+
+  const handleAddToColletionBtn = (e:React.FormEvent) => {
+    e.preventDefault();
+    alert("Added to Collection.");
+  }
 
   return (
     <section>
@@ -65,12 +76,16 @@ const ContentHeader = ({ contentData }: ContentHeaderProps) => {
 
         {/* Action Buttons */}
         <div className="flex flex-col md:w-[25vw] gap-3">
-          <PrimaryButton>
+          <PrimaryButton
+            onClick={handleWatchedBtn}
+          >
             <FaRegEye size={20} />
             Mark as Watched
           </PrimaryButton>
 
-          <SecondaryButton>
+          <SecondaryButton
+            onClick={handleAddToColletionBtn}
+          >
             <FaRegBookmark size={15} />
             Add to Collection
           </SecondaryButton>

@@ -11,6 +11,11 @@ export default function ReviewForm({ userName, userImage }: ReviewFormType) {
   const [rating, setRating] = useState<number>(0);
   const [comment, setComment] = useState<string>("");
 
+  const handlePostBtn = (e:React.FormEvent) => {
+    e.preventDefault();
+    alert("Posted.")
+  }
+
   return (
     <div className="bg-white/10 w-full min-h-50 p-4 rounded-xl">
       <div className="flex items-start justify-between gap-4">
@@ -60,14 +65,17 @@ export default function ReviewForm({ userName, userImage }: ReviewFormType) {
       <div className="flex flex-row mt-5 gap-3 w-full sm:w-auto justify-end">
         <div className={"transition-all duration-200 ease-in-out transform origin-right " + (comment.length > 0 ? "opacity-100 scale-100" : "opacity-0 scale-0")}>
           <button 
-            className="py-2 px-3 sm:px-4 w-full sm:w-auto text-xs sm:text-sm md:text-base font-medium text-[#E2E2E2] rounded-full hover:bg-white/5 transition-colors"
+            className="py-2 px-4 sm:px-6 w-full sm:w-auto text-xs sm:text-sm md:text-base font-medium text-[#E2E2E2] rounded-full hover:bg-white/5 transition-colors"
             onClick={() => setComment("")}
           >
             Clear
           </button>
         </div>
 
-        <button className="py-2 px-4 sm:px-6 text-xs sm:text-sm md:text-base font-medium text-black rounded-full transition-colors bg-white hover:bg-white/90  flex items-center justify-center gap-2">
+        <button 
+          className="py-2 px-4 sm:px-6 text-xs sm:text-sm md:text-base font-medium text-black rounded-full transition-colors bg-white cursor-pointer hover:bg-white/90  flex items-center justify-center gap-2"
+          onClick={handlePostBtn}
+        >
           Post
         </button>
       </div>
