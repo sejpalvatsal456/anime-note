@@ -135,3 +135,8 @@ export interface AnimeMeta {
   name: string;
   url: string;
 }
+
+export interface CategoryDataType {
+  letter: string;
+  categories: { name: string; slug: string }[];
+}
