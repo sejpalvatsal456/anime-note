@@ -6,6 +6,9 @@ import { FaHeart } from 'react-icons/fa'
 
 export const Route = createFileRoute('/')({ 
   component: App,
+  loader: async() => {
+    await testConnection();
+  }
  })
 
 function App() {
