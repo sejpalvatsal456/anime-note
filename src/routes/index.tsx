@@ -1,9 +1,12 @@
 import ContentRail from '#/components/ContentRail'
 import Navbar from '#/components/NavBar'
+import { testConnection } from '#/server/test'
 import { createFileRoute, } from '@tanstack/react-router'
 import { FaHeart } from 'react-icons/fa'
 
-export const Route = createFileRoute('/')({ component: App })
+export const Route = createFileRoute('/')({ 
+  component: App,
+ })
 
 function App() {
   return (
