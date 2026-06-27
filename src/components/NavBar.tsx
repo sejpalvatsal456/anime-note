@@ -6,6 +6,8 @@ import SearchSection from "./SearchSection";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import type { NavbarTabsType } from "../../types";
+import { SignInButton, SignOutButton, SignUpButton, useAuth } from "@clerk/tanstack-react-start";
+import { CgProfile } from "react-icons/cg";
 
 const navbarTabs: NavbarTabsType[] = [
   {
@@ -28,6 +30,7 @@ type NavbarProps = {
 
 const Navbar = ({ activePage }: NavbarProps) => {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const { isSignedIn } = useAuth();
 
   const handleSearchClick = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,12 +62,50 @@ const Navbar = ({ activePage }: NavbarProps) => {
             ))}
           </ul>
 
-          <div
-            className="py-6 cursor-pointer text-gray-500 hover:text-white"
-            onClick={handleSearchClick}
-          >
-            {!isSearchOpen ? <IoMdSearch size={25} /> : <IoMdClose size={25} />}
+          <div className="flex gap-5">
+            <div
+              className="py-6 cursor-pointer text-gray-500 hover:text-white"
+              onClick={handleSearchClick}
+            >
+              {!isSearchOpen ? <IoMdSearch size={25} /> : <IoMdClose size={25} />}
+            </div>
+            {isSignedIn
+            ? (
+              <div className="flex justify-center items-center gap-3">
+                <Link  to='/user/$'>
+                  <CgProfile size={30} />
+                </Link>
+                <SignOutButton>
+                  <span className="bg-red-500 py-2 px-3 rounded cursor-pointer hover:bg-red-600">
+                    Sign Out
+                  </span>
+                </SignOutButton>
+              </div>
+              
+            )
+            : (
+              <div className="flex justify-center items-center gap-3">
+
+                <SignInButton
+                  mode="modal"
+                >
+                  <span className="bg-purple-700 py-2 px-3 rounded cursor-pointer hover:bg-purple-800">
+                    Sign In
+                  </span>
+                </SignInButton>
+                <SignUpButton
+                  mode="modal"
+                >
+                  <span className="py-2 px-3 rounded cursor-pointer hover:bg-gray-900">
+                    Sign Up
+                  </span>
+                </SignUpButton>
+
+              </div>
+            )}
           </div>
+
+          
         </nav>
       </div>
       {createPortal(
